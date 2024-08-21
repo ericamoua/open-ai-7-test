@@ -26,10 +26,17 @@ test('checks main logo with correct image and alt text', () => {
   expect(logo).toHaveAttribute('alt', 'lrnr-logo');
 });
 
-test("check main button test", () => {
+test("check personalized quizzes", () => {
   render(<Home/>);
-  const button = screen.getByText(/Begin Journey/i);
-  expect(button).toHaveClass('btn-large');
-  expect(button).toHaveAttribute('id', 'download-button');
+  const heading = screen.getByText(/Personalized Quizzes/i);
+  expect(heading).toBeInTheDocument();
+  expect(heading).toHaveAttribute('class', 'center');
 });
 
+
+test ("check material icons", () => {
+  render(<Home/>);
+  const icon = screen.getByText(/flash_on/i);
+  expect(icon).toBeInTheDocument();
+  expect(icon).toHaveAttribute('class', 'medium material-icons');
+})
